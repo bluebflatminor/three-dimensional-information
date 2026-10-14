@@ -1,4 +1,4 @@
-# Three-Dimensional Information: Olfaction as a Test Case for Geometric Units of Meaning
+# Three-Dimensional Information: Olfaction as a Test Case for Compositional Representation
 
 October 14, 2026
 
@@ -6,7 +6,7 @@ October 14, 2026
 
 ## Summary
 
-This proposal asks whether information encoded as 3D geometry can serve as a basic unit of meaning that composes and reads out better than flat units such as tokens. Bits and bytes measure quantity, and tokens are the flat units of meaning that current language models read in sequence; this study tests a geometric alternative in one contained domain. Smell is the test case because nature already maps 3D molecular shape to patterns across hundreds of receptors and then to meaning, and published 3D odor models exist to serve as templates. The ask is a small, staged computational study on public data, using those models as starting points rather than competitors, with pre-committed kill conditions at each stage.
+This proposal asks when explicitly geometric information supports compositional representation better than flattened symbolic encodings such as text tokens. Bits and bytes measure quantity, and tokens are the flat units current language models read in sequence; this study tests whether 3D geometry adds something those flat units lose, in one contained domain. Smell is the test case because nature already maps 3D molecular shape to patterns across hundreds of receptors, real odors are mixtures, and published 3D odor models exist to serve as templates. The broader motivation is whether geometry could act as a unit of meaning; the study does not test that directly, only whether and where geometry composes better. The ask is a small, staged computational study on public data with pre-committed kill conditions at each stage; mapping where geometry helps is a useful result even if most phases fail.
 
 ## Problem
 
@@ -32,7 +32,7 @@ This proposal tests encoded geometry. Vision, with reconstructed geometry, is a 
 
 ## Approach
 
-The study takes a published 3D odor model as its template and tests whether its internal representation behaves as a geometric unit of meaning. Smell runs through three layers, and each passes a pattern rather than a word to the next.
+The study takes a published 3D odor model as its template and tests where its geometric representation composes and reads out better than flattened encodings. Smell runs through three layers, and each passes a pattern rather than a word to the next.
 
 ```mermaid
 flowchart TB
@@ -44,13 +44,13 @@ flowchart TB
     L1 -. baseline shortcut .-> L3
 ```
 
-The template is the kind of model that already exists for layer 1. DeepNose, for example, turns each molecule's 3D shape into 96 learned features that its authors compare to receptor responses. A learned embedding is not automatically a unit of meaning; the tests below decide that. The study does not try to beat these models; it asks three questions of their representation, each against the matched comparison set described below:
+The template is the kind of model that already exists for layer 1. DeepNose, for example, turns each molecule's 3D shape into 96 learned features that its authors compare to receptor responses. A learned embedding is not automatically compositional; the tests below decide that. The study does not try to beat these models; it asks three questions of their representation, each against the matched comparison set described below:
 
 1. **Information:** beyond what full-strength 2D baselines already encode, including stereochemistry in isomeric SMILES, does explicit geometry add measurable predictive information?
 2. **Composition:** can the meaning of a mixture be predicted from its parts without training on mixtures?
 3. **Readout:** can a simple downstream judgment, such as aversive versus benign, be recovered reliably from the representation?
 
-**Working definition.** In this proposal, a representation counts as a unit of meaning only if it passes the composition test: meanings built from its parts predict untrained wholes, here held-out mixtures, better than matched baselines. Better prediction of single molecules alone does not meet that bar. A positive result would show a representation advantage in one domain, not a universal unit of meaning.
+**Scope of the claim.** The tested property is composition: representations built from parts must predict untrained wholes, here held-out mixtures, better than matched baselines. Better prediction of single molecules alone does not meet that bar. Whether geometry can serve as a unit of meaning is the motivating question, not something these experiments can establish; a positive result would show a compositional advantage in one domain. One further limit: a 3D conformation is usually computed from the molecular graph, so it need not hold more information than the 2D description; if geometry helps, it is by making structure easier for a model to use. Spectra differ, because they are measured rather than derived.
 
 **Comparison set.** Every phase compares the same five representations, trained and evaluated on the same splits, supervision and budget, with results reported across repeated splits and seeds:
 
@@ -113,28 +113,29 @@ The earlier framing, whether 3D beats 2D, is largely answered already: 3D repres
 | Uni-Mol2 fine-tune (Han et al., arXiv 2608.25893) | Pretrained molecular foundation model | Matches or exceeds OpenPOM on descriptors; better on an enantiomer test set | Secondary summary only; the PDF had no readable text |
 | [Mol-PECO](https://www.nature.com/articles/s41540-024-00401-0) (Zhang et al., 2024) | Coulomb-matrix graph with positional encoding | Reports beating adjacency-matrix graph networks and fingerprints | Abstract and results read |
 
-This is why the proposal uses these models as templates rather than competitors. Their measured advantages, stereoisomers and mixtures, are what Phases 1 and 2 test against matched baselines; this check found no study testing whether those advantages hold up as properties of a unit of meaning, though the search was not exhaustive.
+This is why the proposal uses these models as templates rather than competitors. Their measured advantages, stereoisomers and mixtures, are what Phases 1 and 2 test against matched baselines; this check found no study testing whether those advantages hold up as compositional advantages under matched controls, though the search was not exhaustive.
 
 Receptor counts differ by source: about 400 receptor genes (Billesbølle; M2OR), about 350 functional receptors (DeepNose), within roughly 1,000 OR genes of which about 60% are pseudogenes (M2OR). This proposal uses "roughly 400 receptor genes" unless stated otherwise.
 
 ## Related branches (not in scope)
 
-Some instruments read molecular geometry directly from a physical signal, in the way the James Webb Space Telescope identifies molecules in planetary atmospheres from absorbed starlight. They could supply a later, instrument-grounded test of the same question; they are not part of this study.
+Some instruments read molecular geometry directly from a physical signal, in the way the James Webb Space Telescope identifies molecules in planetary atmospheres from absorbed starlight. They could supply a later, instrument-grounded test of the same question; they are not part of this study. The last entry is a theoretical parallel from optics rather than an instrument.
 
 | Branch | What it measures | Why it matters here |
 | --- | --- | --- |
 | Rotational (microwave) spectroscopy, including three-wave mixing | Rotational constants set by the molecule's 3D mass distribution; three-wave mixing tells mirror-image molecules apart in gas-phase mixtures (Patterson et al., 2013) | A measured signal carrying both shape and handedness; the same physics radio astronomy uses to identify molecules in space |
 | Ion mobility spectrometry | Collision cross-section, a rotation-averaged measure of a molecule's shape | The standard trace detector for explosives at airport checkpoints: a deployed, shape-based danger sensor |
 | Mass-spectra odor models (SCENT, 2026 preprint) | Mass spectra aligned to structure embeddings, needing only spectra at prediction time | Odor prediction from a measured signal when the molecule is unknown |
+| Phase-space description of laser pulses (Figueira, 2026) | Shows that separately named pulse distortions are projections of one four-dimensional ellipsoid; each optical element is a matrix, so chained elements compose by multiplication, and phase-space volume is conserved | A worked example of an exact geometric composition rule with conservation laws; it is linear and Gaussian only, so it sets a benchmark rather than evidence, since odor mixtures can mask or create new percepts |
 
 ## Risks, limits and kill conditions
 
-The main risk is that geometry adds complexity without adding predictive power. Each phase therefore ends with a pre-committed test; failing it stops that line rather than prompting a rescue.
+The main risk is that geometry adds complexity without adding predictive power. Each phase therefore ends with a pre-committed test; failing it stops that line rather than prompting a rescue. A failure still records where geometry does not help, which is part of the intended result.
 
 | Phase | Kill condition (pre-committed) | Why it matters |
 | --- | --- | --- |
 | 1 | On a predefined benchmark, the 3D representation's held-out score does not exceed the best matched 2D baseline (isomeric SMILES or graph) by a preset margin, with the confidence interval across splits and seeds excluding zero. Benchmark, metric and margin are fixed before training; any stereoisomer pairs used must have verified perceptual differences | If geometry adds nothing beyond full-strength 2D inputs, the premise fails at its cheapest test |
-| 2 | Mixture predictions composed from component representations do not beat the best matched baseline on held-out mixtures whose component combinations never appear in training | Composition is the working definition of a unit of meaning |
+| 2 | Mixture predictions composed from component representations do not beat the best matched baseline on held-out mixtures whose component combinations never appear in training | Composition is the property the study is built to test |
 | 3 | Readout of human aversiveness (rated pleasantness) from the geometric representation does not beat the same readout from the best matched baseline | If meaning cannot be read back out better, the unit has no practical advantage |
 
 Known limits:
@@ -176,6 +177,7 @@ The first decision is scope: a computational feasibility study only, or one that
 - Patterson, D. et al. (2013). [Sensitive chiral analysis via microwave three-wave mixing](https://arxiv.org/abs/1305.5223v1). *Physical Review Letters* 111, 023008.
 - Curcio, C. A., Sloan, K. R., Kalina, R. E. & Hendrickson, A. E. (1990). [Human photoreceptor topography](https://pubmed.ncbi.nlm.nih.gov/2324310/). *Journal of Comparative Neurology* 292(4), 497–523. DOI 10.1002/cne.902920402.
 - Solórzano, A. et al. (2021). Early fire detection based on gas sensor arrays: multivariate calibration and validation. *Sensors and Actuators B: Chemical* 130961. DOI 10.1016/j.snb.2021.130961. Data: [Smoldering Fires on Zenodo](https://zenodo.org/records/5643075).
+- Figueira, G. (2026). [First-order spatiotemporal couplings in ultrafast pulses: a unified phase-space description](https://doi.org/10.1364/OE.603702). *Optics Express* 34(18), 33391–33407. DOI 10.1364/OE.603702.
 
 ### DOI gate status
 
@@ -183,7 +185,7 @@ Every reference must resolve to its claimed title and authors before this page i
 
 | Reference | Title and authors matched on an opened page | Remaining action |
 | --- | --- | --- |
-| Lee 2023; Billesbølle 2023; Choi 2023; de March 2024; Wang 2026; Lalis (M2OR) 2024; Keller 2017; Zhang (Mol-PECO) 2024; Curcio 1990; Hamel (Pyrfume) 2024 | Yes | Click through each DOI link once before publishing |
+| Lee 2023; Billesbølle 2023; Choi 2023; de March 2024; Wang 2026; Lalis (M2OR) 2024; Keller 2017; Zhang (Mol-PECO) 2024; Curcio 1990; Hamel (Pyrfume) 2024; Figueira 2026 (from the full text) | Yes | Click through each DOI link once before publishing |
 | DeepNose (arXiv 2412.08747) | Yes, full text | Preprint; check for a published version |
 | Patterson 2013 | Title and DOI yes; full author list not shown | Confirm authors |
 | Solórzano 2021 | Yes, via the dataset record | Click through the DOI |
