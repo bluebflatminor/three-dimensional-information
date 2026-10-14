@@ -228,7 +228,7 @@
 <li><strong>Composition:</strong> can the meaning of a mixture be predicted from its parts without training on mixtures?</li>
 <li><strong>Readout:</strong> can a simple downstream judgment, such as aversive versus benign, be recovered reliably from the representation?</li>
 </ol>
-<p><strong>Scope of the claim.</strong> The tested property is composition: representations built from parts must predict untrained wholes, here held-out mixtures, better than matched baselines. Better prediction of single molecules alone does not meet that bar. Whether geometry can serve as a unit of meaning is the motivating question, not something these experiments can establish; a positive result would show a compositional advantage in one domain.</p>
+<p><strong>Scope of the claim.</strong> The tested property is composition: representations built from parts must predict untrained wholes, here held-out mixtures, better than matched baselines. Better prediction of single molecules alone does not meet that bar. Whether geometry can serve as a unit of meaning is the motivating question, not something these experiments can establish; a positive result would show a compositional advantage in one domain. One further limit: a 3D conformation is usually computed from the molecular graph, so it need not hold more information than the 2D description; if geometry helps, it is by making structure easier for a model to use. Spectra differ, because they are measured rather than derived.</p>
 <p><strong>Comparison set.</strong> Every phase compares the same five representations, trained and evaluated on the same splits, supervision and budget, with results reported across repeated splits and seeds:</p>
 <div class="table-wrap"><table>
 <thead>
@@ -383,7 +383,7 @@
 <p>This is why the proposal uses these models as templates rather than competitors. Their measured advantages, stereoisomers and mixtures, are what Phases 1 and 2 test against matched baselines; this check found no study testing whether those advantages hold up as compositional advantages under matched controls, though the search was not exhaustive.</p>
 <p>Receptor counts differ by source: about 400 receptor genes (Billesbølle; M2OR), about 350 functional receptors (DeepNose), within roughly 1,000 OR genes of which about 60% are pseudogenes (M2OR). This proposal uses "roughly 400 receptor genes" unless stated otherwise.</p>
 <h2 id="related-branches-not-in-scope">Related branches (not in scope)</h2>
-<p>Some instruments read molecular geometry directly from a physical signal, in the way the James Webb Space Telescope identifies molecules in planetary atmospheres from absorbed starlight. They could supply a later, instrument-grounded test of the same question; they are not part of this study.</p>
+<p>Some instruments read molecular geometry directly from a physical signal, in the way the James Webb Space Telescope identifies molecules in planetary atmospheres from absorbed starlight. They could supply a later, instrument-grounded test of the same question; they are not part of this study. The last entry is a theoretical parallel from optics rather than an instrument.</p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -407,6 +407,11 @@
 <td>Mass-spectra odor models (SCENT, 2026 preprint)</td>
 <td>Mass spectra aligned to structure embeddings, needing only spectra at prediction time</td>
 <td>Odor prediction from a measured signal when the molecule is unknown</td>
+</tr>
+<tr>
+<td>Phase-space description of laser pulses (Figueira, 2026)</td>
+<td>Shows that separately named pulse distortions are projections of one four-dimensional ellipsoid; each optical element is a matrix, so chained elements compose by multiplication, and phase-space volume is conserved</td>
+<td>A worked example of an exact geometric composition rule with conservation laws; it is linear and Gaussian only, so it sets a benchmark rather than evidence, since odor mixtures can mask or create new percepts</td>
 </tr>
 </tbody>
 </table></div>
@@ -476,6 +481,7 @@
 <li>Patterson, D. et al. (2013). <a href="https://arxiv.org/abs/1305.5223v1">Sensitive chiral analysis via microwave three-wave mixing</a>. <em>Physical Review Letters</em> 111, 023008.</li>
 <li>Curcio, C. A., Sloan, K. R., Kalina, R. E. &amp; Hendrickson, A. E. (1990). <a href="https://pubmed.ncbi.nlm.nih.gov/2324310/">Human photoreceptor topography</a>. <em>Journal of Comparative Neurology</em> 292(4), 497–523. DOI 10.1002/cne.902920402.</li>
 <li>Solórzano, A. et al. (2021). Early fire detection based on gas sensor arrays: multivariate calibration and validation. <em>Sensors and Actuators B: Chemical</em> 130961. DOI 10.1016/j.snb.2021.130961. Data: <a href="https://zenodo.org/records/5643075">Smoldering Fires on Zenodo</a>.</li>
+<li>Figueira, G. (2026). <a href="https://doi.org/10.1364/OE.603702">First-order spatiotemporal couplings in ultrafast pulses: a unified phase-space description</a>. <em>Optics Express</em> 34(18), 33391–33407. DOI 10.1364/OE.603702.</li>
 </ul>
 <h3 id="doi-gate-status">DOI gate status</h3>
 <p>Every reference must resolve to its claimed title and authors before this page is deployed.</p>
@@ -489,7 +495,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Lee 2023; Billesbølle 2023; Choi 2023; de March 2024; Wang 2026; Lalis (M2OR) 2024; Keller 2017; Zhang (Mol-PECO) 2024; Curcio 1990; Hamel (Pyrfume) 2024</td>
+<td>Lee 2023; Billesbølle 2023; Choi 2023; de March 2024; Wang 2026; Lalis (M2OR) 2024; Keller 2017; Zhang (Mol-PECO) 2024; Curcio 1990; Hamel (Pyrfume) 2024; Figueira 2026 (from the full text)</td>
 <td>Yes</td>
 <td>Click through each DOI link once before publishing</td>
 </tr>
