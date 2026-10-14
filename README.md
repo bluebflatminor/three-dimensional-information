@@ -21,14 +21,15 @@ Current gaps (citations checked against sources; see [Sources](#sources)):
 - **Receptor to response** is modeled mainly in animal neuroscience, with little machine-readable linkage to molecular features.
 - **Flat encodings persist.** Many pipelines feed molecules in as SMILES text strings, which encode connectivity and, in isomeric form, stereochemistry, but not 3D conformation.
 
-### Two routes to dimensional information
+### Three routes to dimensional information
 
-Vision and smell reach dimensional information by different routes, and this study tests only one of them.
+Vision, echolocation and smell reach dimensional information by different routes, and this study tests only one of them.
 
 - **Vision reconstructs geometry.** The retina is a curved sheet, and the brain infers depth from cues such as the difference between the two eyes' views, motion and shading. The retina also compresses early: an average of about 92 million rods and 4.6 million cones per retina (Curcio et al., 1990, from eight retinas) converge onto roughly a million ganglion-cell fibers per eye, the ganglion figure coming from secondary sources.
+- **Echolocation reconstructs geometry from time.** Bats and toothed whales send out sound and read the returning echoes. In many bat species, auditory-cortex neurons tuned to specific echo delays are arranged as a map of target distance, though these maps can be blurry and some species lack them. Whether dolphins form shape representations shared across senses is debated: a dolphin matched objects between echolocation and vision almost immediately (Pack & Herman, 1995), while a later study found shape hard to access through echolocation alone (Harley et al., 2013).
 - **Smell encodes geometry in the stimulus.** The molecule's shape is three-dimensional, and the olfactory bulb maps receptor inputs spatially, but the brain does not reconstruct the molecule's geometry; meaning sits in which combination of receptors responds.
 
-This proposal tests encoded geometry. Vision, with reconstructed geometry, is a candidate second test case and is out of scope here.
+This proposal tests encoded geometry. Vision and echolocation, which reconstruct geometry, are candidate later test cases and are out of scope here.
 
 ## Approach
 
@@ -178,6 +179,9 @@ The first decision is scope: a computational feasibility study only, or one that
 - Curcio, C. A., Sloan, K. R., Kalina, R. E. & Hendrickson, A. E. (1990). [Human photoreceptor topography](https://pubmed.ncbi.nlm.nih.gov/2324310/). *Journal of Comparative Neurology* 292(4), 497–523. DOI 10.1002/cne.902920402.
 - Solórzano, A. et al. (2021). Early fire detection based on gas sensor arrays: multivariate calibration and validation. *Sensors and Actuators B: Chemical* 130961. DOI 10.1016/j.snb.2021.130961. Data: [Smoldering Fires on Zenodo](https://zenodo.org/records/5643075).
 - Figueira, G. (2026). [First-order spatiotemporal couplings in ultrafast pulses: a unified phase-space description](https://doi.org/10.1364/OE.603702). *Optics Express* 34(18), 33391–33407. DOI 10.1364/OE.603702.
+- Pack, A. A. & Herman, L. M. (1995). Sensory integration in the bottlenosed dolphin: immediate recognition of complex shapes across the senses of echolocation and vision. *Journal of the Acoustical Society of America* 98, 722–733.
+- Harley, H. E., Fellner, W. & Losch, B. (2013). Dolphin echolocation is not seeing with sound. *Journal of the Acoustical Society of America* (2013); volume and pages to confirm.
+- Hechavarría, J. C. et al. (2013). [Article on target-distance maps in bat auditory cortex](https://www.nature.com/articles/ncomms3587). *Nature Communications* (2013), article ncomms3587; title, authors and volume to confirm.
 
 ### DOI gate status
 
@@ -194,6 +198,7 @@ Every reference must resolve to its claimed title and authors before this page i
 | Magdeburg fire dataset | Description yes; license not shown | Confirm license |
 | M2OR 88% deorphanization figure | No; page blocked | Confirm or remove |
 | Retina ganglion-cell count | No; secondary pages only | Open Curcio & Allen (1990), J. Comp. Neurol. 300, 5–25 |
+| Pack & Herman 1995; Harley 2013; Hechavarría 2013 | Findings yes, from abstracts and citing papers; titles and pages partly unconfirmed | Confirm full titles, volumes and DOIs |
 
 ## License
 
