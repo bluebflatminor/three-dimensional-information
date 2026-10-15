@@ -464,6 +464,98 @@
 <li>Define held-out splits for molecules and receptors before training anything</li>
 <li>Decide whether physical wave-based substrates (optical or quantum reservoirs) belong in a later phase or a separate proposal</li>
 </ul>
+<h2 id="revision-log">Revision log</h2>
+<p>Claims are tombstoned here rather than silently corrected, so readers can see what changed and why. Entries are in session order.</p>
+<h3 id="withdrawn-or-corrected-claims">Withdrawn or corrected claims</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Original claim</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The study models olfactory danger signals (first title: "From Molecule to Alarm")</td>
+<td>Withdrawn</td>
+<td>No public human dataset labels odors as dangerous; Phase 3 now reads out rated pleasantness</td>
+</tr>
+<tr>
+<td>Phase 1: 3D beats 2D on held-out odor descriptors</td>
+<td>Withdrawn</td>
+<td>Prior art shows parity (DeepNose AUROC 0.911 vs 0.913 for the best graph model)</td>
+</tr>
+<tr>
+<td>Phase 1: geometry keeps distinctions flat units lose, such as mirror-image molecules</td>
+<td>Withdrawn</td>
+<td>Isomeric SMILES already encodes stereochemistry; raised in external review</td>
+</tr>
+<tr>
+<td>Geometry as a unit of meaning is the tested claim</td>
+<td>Demoted to motivation</td>
+<td>The experiments test composition, not meaning</td>
+</tr>
+<tr>
+<td>Fire-versus-nuisance data as a Phase 3 target</td>
+<td>Demoted to context</td>
+<td>Sensor channels are bulk gases, not molecules; a separate application</td>
+</tr>
+<tr>
+<td>The brain keeps no spatial map of the odor</td>
+<td>Corrected</td>
+<td>The olfactory bulb maps receptor inputs spatially; what is absent is reconstruction of the molecule's geometry</td>
+</tr>
+<tr>
+<td>OR51E2 described as "activated by an odorant"</td>
+<td>Reworded</td>
+<td>Now "active-state structure bound to an odorant," matching the paper</td>
+</tr>
+<tr>
+<td>Retina: 90–120 million rods and 4.6–7 million cones, from tertiary sources</td>
+<td>Corrected</td>
+<td>Replaced with Curcio et al. (1990) averages; ganglion-cell count still unverified</td>
+</tr>
+<tr>
+<td>Most native odorant receptors lack structures (unqualified)</td>
+<td>Narrowed</td>
+<td>Recent progress comes mainly from engineered consensus receptors</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="external-reviews">External reviews</h3>
+<p>All reviews so far are by language models and are treated as one correlated signal; no human expert has reviewed the proposal.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Reviewer</th>
+<th>Version reviewed</th>
+<th>Adopted</th>
+<th>Errors found in the review</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ChatGPT</td>
+<td>Before the comparison set and statistical kill conditions</td>
+<td>Matched baselines, isomeric-SMILES point, statistical kill conditions, single Phase 3 target, run-level splits for fire data</td>
+<td>Called OR51E2's active state unsupported; called M2OR non-responses untested</td>
+</tr>
+<tr>
+<td>Copilot</td>
+<td>Revised version</td>
+<td>Reframed question: when geometry supports composition better than flat encodings</td>
+<td>Inflated praise and unanchored scores</td>
+</tr>
+<tr>
+<td>Kimi</td>
+<td>Revised version</td>
+<td>Pending decision</td>
+<td>Reversed the 88% figure ("deorphanized"); stated mixture receptor responses as governed by competitive agonism more firmly than the literature supports</td>
+</tr>
+</tbody>
+</table></div>
+<p>Pending from the Kimi review: demote Phase 1 to a parity gate; pre-commit how a Phase 2 null is interpreted (non-compositional representation versus configural perception); component-disjoint splits with error reported by mixture size; rename Phase 3 as a pleasantness readout tested across structurally different molecules; move out-of-scope material to a notes file; decide whether the receptor layer becomes the centerpiece. Two factual checks come first: whether the spectra datasets are measured or computed, and whether receptor responses to mixtures exist in usable quantity.</p>
 <h2 id="sources">Sources</h2>
 <ul class="sources">
 <li>Lee, B. K. et al. (2023). <a href="https://reading-9.eprints-hosting.org/113304">A principal odor map unifies diverse tasks in olfactory perception</a>. <em>Science</em> 381(6661), 999–1006. DOI 10.1126/science.ade4401.</li>
