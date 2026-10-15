@@ -113,8 +113,9 @@ The earlier framing, whether 3D beats 2D, is largely answered already: 3D repres
 | [DeepNose](https://arxiv.org/abs/2412.08747) (Shuvaev et al., preprint) | 3D voxel grid, rotation-equivariant CNN | Leffingwell AUROC 0.911 vs 0.913 for the best graph model, statistically indistinguishable; distinguishes stereoisomers; mixtures zero-shot R = 0.40 | Full text read |
 | Uni-Mol2 fine-tune (Han et al., arXiv 2608.25893) | Pretrained molecular foundation model | Matches or exceeds OpenPOM on descriptors; better on an enantiomer test set | Secondary summary only; the PDF had no readable text |
 | [Mol-PECO](https://www.nature.com/articles/s41540-024-00401-0) (Zhang et al., 2024) | Coulomb-matrix graph with positional encoding | Reports beating adjacency-matrix graph networks and fingerprints | Abstract and results read |
+| 3D-MoLM (Li et al., ICLR 2024) | 3D molecular encoder feeding a language model | Outperforms 1D and 2D molecule-text models on retrieval, captioning and question answering, especially for 3D-dependent properties; not tested on odor | Abstract read |
 
-This is why the proposal uses these models as templates rather than competitors. Their measured advantages, stereoisomers and mixtures, are what Phases 1 and 2 test against matched baselines; this check found no study testing whether those advantages hold up as compositional advantages under matched controls, though the search was not exhaustive.
+This is why the proposal uses these models as templates rather than competitors. Their measured advantages, stereoisomers and mixtures, are what Phases 1 and 2 test against matched baselines; giving a language model a geometric input channel has itself been done (3D-MoLM). What this check did not find is a test of whether those advantages hold up as compositional advantages under matched controls; the search was not exhaustive, and it missed 3D-MoLM at first.
 
 Receptor counts differ by source: about 400 receptor genes (Billesbølle; M2OR), about 350 functional receptors (DeepNose), within roughly 1,000 OR genes of which about 60% are pseudogenes (M2OR). This proposal uses "roughly 400 receptor genes" unless stated otherwise.
 
@@ -157,6 +158,7 @@ The first decision is scope: a computational feasibility study only, or one that
 - [ ] Confirm access to the DREAM olfactory mixture data for Phase 2
 - [ ] Fix the Phase 1 benchmark, metric and margin before training
 - [ ] Assemble stereoisomer pairs with documented perceptual differences, if Phase 1 uses them
+- [ ] Decide whether to add a structural-alphabet arm: flat tokens whose letters stand for local 3D shapes, such as the 3Di alphabet used for protein structure search (reference to confirm)
 - [ ] Define held-out splits for molecules and receptors before training anything
 - [ ] Decide whether physical wave-based substrates (optical or quantum reservoirs) belong in a later phase or a separate proposal
 
@@ -177,6 +179,8 @@ Claims are tombstoned here rather than silently corrected, so readers can see wh
 | OR51E2 described as "activated by an odorant" | Reworded | Now "active-state structure bound to an odorant," matching the paper |
 | Retina: 90–120 million rods and 4.6–7 million cones, from tertiary sources | Corrected | Replaced with Curcio et al. (1990) averages; ganglion-cell count still unverified |
 | Most native odorant receptors lack structures (unqualified) | Narrowed | Recent progress comes mainly from engineered consensus receptors |
+| Current AI reads meaning through flat units | Corrected | Internal representations are high-dimensional and geometric; only input and output units are flat. Corrected in an earlier revision without being logged |
+| No prior work gives a language model geometric molecular input (implied by early drafts) | Withdrawn | 3D-MoLM (2024) already does this; novelty now rests on the composition test |
 
 ### External reviews
 
@@ -209,6 +213,7 @@ Pending from the Kimi review: demote Phase 1 to a parity gate; pre-commit how a 
 - Curcio, C. A., Sloan, K. R., Kalina, R. E. & Hendrickson, A. E. (1990). [Human photoreceptor topography](https://pubmed.ncbi.nlm.nih.gov/2324310/). *Journal of Comparative Neurology* 292(4), 497–523. DOI 10.1002/cne.902920402.
 - Solórzano, A. et al. (2021). Early fire detection based on gas sensor arrays: multivariate calibration and validation. *Sensors and Actuators B: Chemical* 130961. DOI 10.1016/j.snb.2021.130961. Data: [Smoldering Fires on Zenodo](https://zenodo.org/records/5643075).
 - Figueira, G. (2026). [First-order spatiotemporal couplings in ultrafast pulses: a unified phase-space description](https://doi.org/10.1364/OE.603702). *Optics Express* 34(18), 33391–33407. DOI 10.1364/OE.603702.
+- Li, S., Liu, Z., Luo, Y., Wang, X., He, X., Kawaguchi, K., Chua, T.-S. & Tian, Q. (2024). [Towards 3D molecule-text interpretation in language models](https://arxiv.org/abs/2401.13923v2). *International Conference on Learning Representations (ICLR 2024)*. arXiv 2401.13923.
 - Pack, A. A. & Herman, L. M. (1995). Sensory integration in the bottlenosed dolphin: immediate recognition of complex shapes across the senses of echolocation and vision. *Journal of the Acoustical Society of America* 98, 722–733.
 - Harley, H. E., Fellner, W. & Losch, B. (2013). Dolphin echolocation is not seeing with sound. *Journal of the Acoustical Society of America* (2013); volume and pages to confirm.
 - Hechavarría, J. C. et al. (2013). [Article on target-distance maps in bat auditory cortex](https://www.nature.com/articles/ncomms3587). *Nature Communications* (2013), article ncomms3587; title, authors and volume to confirm.
@@ -219,7 +224,7 @@ Every reference must resolve to its claimed title and authors before this page i
 
 | Reference | Title and authors matched on an opened page | Remaining action |
 | --- | --- | --- |
-| Lee 2023; Billesbølle 2023; Choi 2023; de March 2024; Wang 2026; Lalis (M2OR) 2024; Keller 2017; Zhang (Mol-PECO) 2024; Curcio 1990; Hamel (Pyrfume) 2024; Figueira 2026 (from the full text) | Yes | Click through each DOI link once before publishing |
+| Lee 2023; Billesbølle 2023; Choi 2023; de March 2024; Wang 2026; Lalis (M2OR) 2024; Keller 2017; Zhang (Mol-PECO) 2024; Curcio 1990; Hamel (Pyrfume) 2024; Figueira 2026 (from the full text); Li (3D-MoLM) 2024 | Yes | Click through each DOI link once before publishing |
 | DeepNose (arXiv 2412.08747) | Yes, full text | Preprint; check for a published version |
 | Patterson 2013 | Title and DOI yes; full author list not shown | Confirm authors |
 | Solórzano 2021 | Yes, via the dataset record | Click through the DOI |
@@ -229,6 +234,7 @@ Every reference must resolve to its claimed title and authors before this page i
 | M2OR 88% deorphanization figure | No; page blocked | Confirm or remove |
 | Retina ganglion-cell count | No; secondary pages only | Open Curcio & Allen (1990), J. Comp. Neurol. 300, 5–25 |
 | Pack & Herman 1995; Harley 2013; Hechavarría 2013 | Findings yes, from abstracts and citing papers; titles and pages partly unconfirmed | Confirm full titles, volumes and DOIs |
+| 3Di structural alphabet (Foldseek) | No; described from general knowledge | Find and confirm the primary reference |
 
 ## License
 
