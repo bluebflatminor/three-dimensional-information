@@ -160,6 +160,36 @@ The first decision is scope: a computational feasibility study only, or one that
 - [ ] Define held-out splits for molecules and receptors before training anything
 - [ ] Decide whether physical wave-based substrates (optical or quantum reservoirs) belong in a later phase or a separate proposal
 
+## Revision log
+
+Claims are tombstoned here rather than silently corrected, so readers can see what changed and why. Entries are in session order.
+
+### Withdrawn or corrected claims
+
+| Original claim | Status | Reason |
+| --- | --- | --- |
+| The study models olfactory danger signals (first title: "From Molecule to Alarm") | Withdrawn | No public human dataset labels odors as dangerous; Phase 3 now reads out rated pleasantness |
+| Phase 1: 3D beats 2D on held-out odor descriptors | Withdrawn | Prior art shows parity (DeepNose AUROC 0.911 vs 0.913 for the best graph model) |
+| Phase 1: geometry keeps distinctions flat units lose, such as mirror-image molecules | Withdrawn | Isomeric SMILES already encodes stereochemistry; raised in external review |
+| Geometry as a unit of meaning is the tested claim | Demoted to motivation | The experiments test composition, not meaning |
+| Fire-versus-nuisance data as a Phase 3 target | Demoted to context | Sensor channels are bulk gases, not molecules; a separate application |
+| The brain keeps no spatial map of the odor | Corrected | The olfactory bulb maps receptor inputs spatially; what is absent is reconstruction of the molecule's geometry |
+| OR51E2 described as "activated by an odorant" | Reworded | Now "active-state structure bound to an odorant," matching the paper |
+| Retina: 90–120 million rods and 4.6–7 million cones, from tertiary sources | Corrected | Replaced with Curcio et al. (1990) averages; ganglion-cell count still unverified |
+| Most native odorant receptors lack structures (unqualified) | Narrowed | Recent progress comes mainly from engineered consensus receptors |
+
+### External reviews
+
+All reviews so far are by language models and are treated as one correlated signal; no human expert has reviewed the proposal.
+
+| Reviewer | Version reviewed | Adopted | Errors found in the review |
+| --- | --- | --- | --- |
+| ChatGPT | Before the comparison set and statistical kill conditions | Matched baselines, isomeric-SMILES point, statistical kill conditions, single Phase 3 target, run-level splits for fire data | Called OR51E2's active state unsupported; called M2OR non-responses untested |
+| Copilot | Revised version | Reframed question: when geometry supports composition better than flat encodings | Inflated praise and unanchored scores |
+| Kimi | Revised version | Pending decision | Reversed the 88% figure ("deorphanized"); stated mixture receptor responses as governed by competitive agonism more firmly than the literature supports |
+
+Pending from the Kimi review: demote Phase 1 to a parity gate; pre-commit how a Phase 2 null is interpreted (non-compositional representation versus configural perception); component-disjoint splits with error reported by mixture size; rename Phase 3 as a pleasantness readout tested across structurally different molecules; move out-of-scope material to a notes file; decide whether the receptor layer becomes the centerpiece. Two factual checks come first: whether the spectra datasets are measured or computed, and whether receptor responses to mixtures exist in usable quantity.
+
 ## Sources
 
 - Lee, B. K. et al. (2023). [A principal odor map unifies diverse tasks in olfactory perception](https://reading-9.eprints-hosting.org/113304). *Science* 381(6661), 999–1006. DOI 10.1126/science.ade4401.
